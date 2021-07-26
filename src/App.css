@@ -16,6 +16,7 @@ body {
 .counterBtn {
     margin: auto;
     text-align: center;
+    align-items: flex-start;
     background-color: slateblue;
     padding: 2px;
     width: 500px;

@@ -16,6 +16,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <User></User>
+        <Users></Users>
         <Counter> </Counter>
         {user.map( person => <Person person={person} ></Person> )}
       </header>
@@ -59,6 +60,26 @@ function User(){
           </div>
           )
       }
+    </div>
+  )
+}
+function Users(){
+  const [user, setUser] = useState([]);
+  useEffect(() =>{
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(data =>setUser(data))
+  })
+  return(
+    <div style={{color:'white', textAlign:'center'}}>
+      <h3> Dynamic Data {user.length} </h3>   
+        {user.map(user => 
+        <div className="counterBtn">
+          <h2>Name: {user.name} </h2>
+          <p>Mail: {user.email} </p>
+          <p>Phone : {user.phone}</p>
+        </div>
+          )}      
     </div>
   )
 }
