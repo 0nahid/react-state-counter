@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 function App() {
   const user = [
@@ -15,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <User></User>
         <Counter> </Counter>
         {user.map( person => <Person person={person} ></Person> )}
       </header>
@@ -30,12 +31,34 @@ function Person({person}){
   )
 }
 function Counter(){
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(10);
   return(
     <div className="counterBtn">
-      <h1>Count:{count}</h1>
-      <button onClick={() => setCount(count - 1) }>Decrease</button>
-      <button onClick={() => setCount(count + 1)}>Increase</button>
+      <h1>Count: {count} </h1>
+      <button onClick={() =>setCount(count - 1)}>Decrease</button>
+      <button onClick={() =>setCount(count + 1)} >Increase</button>
+    </div>
+  )
+}
+function User(){
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(data => setUsers(data) )
+  },[] )
+  return(
+    <div style={{textAlign:'center', color:'white'}}>
+      <h3>Dynamic User : {users.length} </h3>
+      {console.log(users)}
+      {
+        users.map(user => 
+          <div className="counterBtn">
+            <h2>Name : {user.name}</h2>
+            <p>Mail: {user.email} </p>
+          </div>
+          )
+      }
     </div>
   )
 }
