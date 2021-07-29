@@ -113,7 +113,7 @@ function Users() {
   );
 }
 function Nayoks() {
-  const nayoks = ["Nahid", "Hassan", "Bulbul"];
+  const nayoks = ["Nahid", "Hassan", "Bulbul", "Robin", "Saown"];
   return (
     <div className="counterBtn">
       {nayoks.map((nayok) => (
