@@ -16,6 +16,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Nayoks></Nayoks>
         <Users></Users>
         <User></User>
         <User1></User1>
@@ -111,5 +112,23 @@ function Users() {
     </div>
   );
 }
-
+function Nayoks() {
+  const nayoks = ["Nahid", "Hassan", "Bulbul"];
+  return (
+    <div className="counterBtn">
+      {nayoks.map((nayok) => (
+        <li
+          style={{
+            listStyle: "none",
+            textAlign: "start",
+            padding: "10px",
+            margin: "10px",
+          }}
+        >
+          {nayok}
+        </li>
+      ))}
+    </div>
+  );
+}
 export default App;
