@@ -102,8 +102,9 @@ function Users() {
           <h4>Mail :{user.email}</h4>
           <h4>Phone: {user.phone}</h4>
           <h5>
+            {" "}
             Address :{" "}
-            {`City :${user.address.city} , Street :${user.address.street} `}
+            {`City :${user.address.city} , Street :${user.address.street} `}{" "}
           </h5>
         </div>
       ))}
